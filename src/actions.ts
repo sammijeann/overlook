@@ -1,5 +1,5 @@
 import inquirer from "inquirer";
-import { pool, connectToDb } from './connection.js';
+import { pool } from './connection.js';
 
 class DataQueries {
     exit: boolean = false;
