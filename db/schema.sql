@@ -18,8 +18,8 @@ CREATE TABLE role (
 
 CREATE TABLE employee (
   id SERIAL PRIMARY KEY,
-  first_name VARCHAR(30) UNIQUE NOT NULL,
-  last_name VARCHAR(30) UNIQUE NOT NULL,
+  first_name VARCHAR(30) NOT NULL,
+  last_name VARCHAR(30) NOT NULL,
   role_id INTEGER NOT NULL,
   FOREIGN KEY (role_id) REFERENCES role(id),
   manager_id INTEGER,
