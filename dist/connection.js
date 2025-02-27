@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 dotenv.config();
-console.log('DB_USER:', process.env.DB_USER);
-console.log('DB_PASSWORD:', process.env.DB_PASSWORD);
+console.log(process.env.DB_USER);
+console.log(process.env.DB_PASSWORD);
 // Import and require Pool (node-postgres)
 // We'll be creating a Connection Pool. Read up on the benefits here: https://node-postgres.com/features/pooling
 import pg from 'pg';

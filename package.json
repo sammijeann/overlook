@@ -12,6 +12,7 @@
   "dependencies": {
     "dotenv": "^16.4.5",
     "express": "^4.17.1",
+    "fs": "^0.0.1-security",
     "inquirer": "^12.4.2",
     "pg": "^8.13.3"
   },
