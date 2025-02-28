@@ -34,7 +34,7 @@ class DataQueries {
 
     async viewDepartmentInfo() {
       try {
-        const result = await pool.query('SELECT * FROM department');
+        const result = await pool.query('SELECT * FROM department;');
         console.table(result.rows);
         this.startActions();
         return result.rows;
@@ -46,7 +46,7 @@ class DataQueries {
 
     async viewRoleInfo() {
       try {
-        const result = await pool.query('SELECT * FROM role JOIN department ON role.department_id = department.id');
+        const result = await pool.query('SELECT * FROM role JOIN department ON role.department_id = department.id;');
         console.table(result.rows);
         this.startActions();
         return result.rows;
@@ -74,7 +74,7 @@ class DataQueries {
             department d ON r.department_id = d.id
           LEFT JOIN 
             employee m ON e.manager_id = m.id
-        `);
+        ;`);
         const table = new Table({
           head: ['Employee ID', 'First Name', 'Last Name', 'Job Title', 'Department', 'Salary', 'Manager'],
           colWidths: [5, 15, 15, 20, 10, 10, 20]
@@ -144,7 +144,7 @@ class DataQueries {
         }
       ])
       .then((answers) => {
-          const result = pool.query(`INSERT INTO department (name) VALUES ($1) RETURNING * VALUES ($1)`, [answers.title]);
+          const result = pool.query(`INSERT INTO department (name) VALUES ($1) RETURNING * `, [answers.title]);
           //console.log(result);
           this.startActions();
           return result;

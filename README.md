@@ -20,7 +20,7 @@ A command-line driven app for managers to view and manage the departments, roles
 Download the file and extract data
 
 ## Usage
-Video Walkthrough: https://drive.google.com/file/d/17gjEOW8YIxivZ9kp1F5TpWt0ixe5pU5V/view?usp=sharing
+Video Walkthrough: https://drive.google.com/file/d/1E74O23ST0E0oC00xtR3WZ9qQ9q4R5F0S/view?usp=sharing
 
 1. Open in an IDE (I used VS Code)
 2. Create your own .env file with DB_NAME=company_db, DB_USER= and DB_PASSWORD
