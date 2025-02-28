@@ -5,17 +5,17 @@ VALUES  ('Art'),
         ('Production');
 
 INSERT INTO role (title, salary, department_id)
-VALUES  ('Art Director', 000, 1),
-        ('3D Artist', 000, 1),
-        ('2D Artist', 000, 1),
-        ('Lead Designer', 000, 2),
-        ('Level Designer', 000, 2),
-        ('Gameplay Designer', 000, 2),
-        ('Lead Programmer', 000, 3),
-        ('Gameplay Programmer', 000, 3),
-        ('Technical Artist', 000, 3),
-        ('Producer', 000, 4),
-        ('Scrum Master', 000, 4);
+VALUES  ('Art Director', 100000, 1),
+        ('3D Artist', 50000, 1),
+        ('2D Artist', 50000, 1),
+        ('Lead Designer', 78000, 2),
+        ('Level Designer', 65000, 2),
+        ('Gameplay Designer', 60000, 2),
+        ('Lead Programmer', 85000, 3),
+        ('Gameplay Programmer', 70000, 3),
+        ('Technical Artist', 60000, 3),
+        ('Producer', 120000, 4),
+        ('Scrum Master', 50000, 4);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES  ('Mae', 'Satterfield', 10, NULL),

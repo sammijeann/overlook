@@ -1,5 +1,6 @@
 import inquirer from "inquirer";
 import { pool } from './connection.js';
+import Table from 'cli-table3';
 class DataQueries {
     constructor() {
         Object.defineProperty(this, "exit", {
@@ -51,7 +52,7 @@ class DataQueries {
     }
     async viewRoleInfo() {
         try {
-            const result = await pool.query('SELECT * FROM role');
+            const result = await pool.query('SELECT * FROM role JOIN department ON role.department_id = department.id');
             console.table(result.rows);
             this.startActions();
             return result.rows;
@@ -63,8 +64,41 @@ class DataQueries {
     }
     async viewEmployeeInfo() {
         try {
-            const result = await pool.query('SELECT * FROM employee');
-            console.table(result.rows);
+            const result = await pool.query(`SELECT 
+            e.id AS "Employee ID",
+            e.first_name AS "First Name",
+            e.last_name AS "Last Name",
+            r.title AS "Job Title",
+            d.name AS "Department",
+            r.salary AS "Salary",
+            m.first_name || ' ' || m.last_name AS "Manager"
+          FROM 
+            employee e
+          JOIN 
+            role r ON e.role_id = r.id
+          JOIN 
+            department d ON r.department_id = d.id
+          LEFT JOIN 
+            employee m ON e.manager_id = m.id
+        `);
+            const table = new Table({
+                head: ['Employee ID', 'First Name', 'Last Name', 'Job Title', 'Department', 'Salary', 'Manager'],
+                colWidths: [5, 15, 15, 20, 10, 10, 20]
+            });
+            // Add rows to the table
+            result.rows.forEach(row => {
+                table.push([
+                    row['Employee ID'],
+                    row['First Name'],
+                    row['Last Name'],
+                    row['Job Title'],
+                    row['Department'],
+                    row['Salary'],
+                    row['Manager']
+                ]);
+            });
+            // Display the table
+            console.log(table.toString());
             this.startActions();
             return result.rows;
         }
